@@ -35,9 +35,10 @@ async def start(client, message):
         return
     add_chat(fuser)
     NewVar = START
+    ba ='India 🇮🇳 '
     if var.OWNER_ID and not message.from_user.id == var.OWNER_ID:
         geto = await client.get_users(var.OWNER_ID)
-        NewVar += f"\n\nMaintained By {geto.mention}"
+        NewVar += f"\n\nMaintained By 🇮🇳 with <3"
     else:
         NewVar += "\n\n**Onwer Commands** - https://telegra.ph/Owner-Commands-05-13"
     await message.reply_text(
