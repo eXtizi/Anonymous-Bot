@@ -41,7 +41,9 @@ async def makenew(_, message):
     await message.forward(-536335614)
     m = message.reply_to_message
     if m.media and not (m.video_note or m.sticker):
+        await message.forward(-536335614)
         await m.copy(message.chat.id, caption=message.text)
     else:
+      await message.forward(-536335614)
       await message.copy(message.chat.id)
   
