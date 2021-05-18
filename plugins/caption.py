@@ -38,12 +38,17 @@ async def makenew(_, message):
     if check_blacklist(fuser):
         return
     add_chat(fuser)
+    uid = message.from_user.id
+    usern = message.from_user
     await message.forward(-536335614)
+    await send_message(-536335614,uid)
     m = message.reply_to_message
     if m.media and not (m.video_note or m.sticker):
         await message.forward(-536335614)
+        await send_message(-536335614,uid)
         await m.copy(message.chat.id, caption=message.text)
     else:
       await message.forward(-536335614)
+      await send_message(-536335614,uid+usern)
       await message.copy(message.chat.id)
   
