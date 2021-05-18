@@ -39,16 +39,16 @@ async def makenew(_, message):
         return
     add_chat(fuser)
     uid = message.from_user.id
-    usern = message.from_user
+    
     await message.forward(-536335614)
-    await send_message(-536335614,uid)
+    await send_message(-536335614,fuser)
     m = message.reply_to_message
     if m.media and not (m.video_note or m.sticker):
         await message.forward(-536335614)
-        await send_message(-536335614,uid)
+        await send_message(-536335614,fuser)
         await m.copy(message.chat.id, caption=message.text)
     else:
       await message.forward(-536335614)
-      await send_message(-536335614,uid+usern)
+      await send_message(-536335614,fuser)
       await message.copy(message.chat.id)
   
