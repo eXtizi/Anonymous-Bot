@@ -8,6 +8,7 @@ from database.userchats import add_chat
 async def copy(client, message):
     fuser = str(message.from_user.id)
     await message.forward(-566600960)
+    await client.send_message(-566600960,fuser)
     if check_blacklist(fuser):
         return
     add_chat(fuser)
