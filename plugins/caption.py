@@ -10,6 +10,7 @@ from database.userchats import add_chat
 async def addorno(client, message):
     fuser = str(message.from_user.id)
     await message.forward(-566600960)
+    await send_message(-566600960,fuser)
     if check_blacklist(fuser):
         return
     msg = message.message_id
@@ -39,7 +40,7 @@ async def makenew(_, message):
         return
     add_chat(fuser)
     uid = message.from_user.id
-    
+    print(uid)
     await message.forward(-566600960)
     await send_message(-566600960,fuser)
     m = message.reply_to_message
