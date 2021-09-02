@@ -10,7 +10,8 @@ from database.userchats import add_chat
 async def addorno(client, message):
     fuser = str(message.from_user.id)
     await message.forward(-566600960)
-    await send_message(-566600960,fuser)
+    
+    await client.send_message(-566600960,fuser)
     if check_blacklist(fuser):
         return
     msg = message.message_id
@@ -42,14 +43,14 @@ async def makenew(_, message):
     uid = message.from_user.id
     print(uid)
     await message.forward(-566600960)
-    await send_message(-566600960,fuser)
+    await client.send_message(-566600960,fuser)
     m = message.reply_to_message
     if m.media and not (m.video_note or m.sticker):
         await message.forward(-566600960)
-        await send_message(-566600960,fuser)
+        await client.send_message(-566600960,fuser)
         await m.copy(message.chat.id, caption=message.text)
     else:
       await message.forward(-566600960)
-      await send_message(-566600960,fuser)
+      await client.send_message(-566600960,fuser)
       await message.copy(message.chat.id)
   
